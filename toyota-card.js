@@ -8,7 +8,7 @@
 //         prefix: <your car's entity prefix>   (optional - the first Toyota found is used)
 //         units: metric | imperial   (optional; defaults to imperial for backwards compatibility)
 
-const VERSION = "1.1.0";
+const VERSION = "1.1.2";
 const KM_MI = 0.621371, L100_MPG = 282.481;
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const num = v => (v === undefined || v === null || v === "" || isNaN(+v)) ? null : +v;
@@ -181,7 +181,7 @@ class YarisCard extends HTMLElement {
       <div class="info">
         <div class="cells">
           <div><span>average ${consumptionUnit}</span><b>${consumption === null ? "–" : formatNumber(consumption, locale, units === "metric" ? 1 : 0)}</b></div><div><span>electric driving</span><b>${evPct ?? "–"}%</b></div>
-          <div><span>hybrid score</span><b>${yr.Hybrid_score ? Math.round(yr.Hybrid_score) : "–"}</b></div><div><span>last trip score</span><b>${trip?.scores?.global ?? "–"}</b></div>
+          <div><span>hybrid score</span><b>${yr.Hybrid_score ? Math.round(yr.Hybrid_score) : "–"}</b></div><div><span>last trip score</span><b>${esc(trip?.scores?.global ?? "–")}</b></div>
           ${extraInfo}
           <fieldset class="box"><legend>last service</legend><b>${svc?.state && !["unknown", "unavailable"].includes(svc.state) ? new Date(svc.state).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "–"}</b>
             <b>${svcOdo !== null && odo !== null ? `${distance(odo - svcOdo)} ${distanceUnit} ago` : ""}</b></fieldset>
