@@ -34,9 +34,10 @@ It lays itself out for phones, tablets and full-page panel views.
 
 ### HACS (recommended)
 
-1. In HACS, open the three-dot menu and choose **Custom repositories**.
-2. Paste this repository's URL (the address of this page) and choose the type **Dashboard**.
-3. Search for **Toyota Card**, download it, and reload your browser when asked.
+1. In HACS, search for **Toyota Card**.
+2. Open it, click **Download**, and reload your browser when asked.
+
+If it doesn't show up, open the three-dot menu in HACS and choose **Custom repositories**. Paste this repository's URL (the address of this page), choose the type **Dashboard**, then search again.
 
 ### Manual
 
