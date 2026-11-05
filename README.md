@@ -9,8 +9,8 @@ A dashboard card for Toyotas in the **MyToyota** or **Toyota** app, using either
 ## What it shows
 
 - Your car's photo, in your colour, straight from the Toyota integration (when provided)
-- Doors, boot, bonnet, windows and warning lights, in amber or red when something needs attention
-- A top-down car with each door's state at its corner (or tyre pressures on North American vehicles without door sensors)
+- Doors, boot / trunk, bonnet / hood, windows and warning lights, in amber or red when something needs attention
+- A top-down car with each door's state at its corner (or tire pressures on North American vehicles without door sensors)
 - Range, odometer and a red / amber / green fuel gauge
 - Average mpg, the share of miles driven on electric, the hybrid score and the last trip score (European `ha_toyota`)
 - For electric and plug-in hybrid cars with battery data, a battery gauge, electric range and charging status
@@ -83,9 +83,9 @@ The old `custom:yaris-card` name still works, so existing dashboards won't break
 
 ## Notes
 
-- Door, window, lock and bonnet states are only as fresh as the car's last report. Tap the time in the top-left corner to request an update.
+- Door, window, lock and bonnet / hood states are only as fresh as the car's last report. Tap the time in the top-left corner to request an update.
 - The parked distance uses your Home zone.
-- Tyre pressures aren't available from Toyota, so the corners of the top-down car show each door instead.
+- On European `ha_toyota` vehicles, tyre pressures aren't available from Toyota, so the corners of the top-down car show each door instead. On North American `ha-toyota-na` vehicles without door sensors, tire pressures (`psi`) are shown at each corner.
 
 ## Support and requests
 

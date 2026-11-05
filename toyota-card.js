@@ -1,6 +1,6 @@
 // toyota-card.js - a Home Assistant dashboard card for a Toyota, using the
 // Toyota Connected Services integration (pytoyoda/ha_toyota or widewing/ha-toyota-na, installed from HACS).
-// Shows: last update, parked distance from home, photo, doors/boot/bonnet/windows/warnings,
+// Shows: last update, parked distance from home, photo, doors/boot(trunk)/bonnet(hood)/windows/warnings,
 // range + odometer, a fuel gauge, mpg / electric / hybrid scores, last/next service, and a
 // top-down car with each door's state (or tire pressures on North American vehicles without door sensors).
 // Choose metric or imperial display units.
@@ -185,7 +185,7 @@ class YarisCard extends HTMLElement {
     // UK cars are right-hand drive (driver top right); NA cars are left-hand drive (driver top left).
     const corner = (k, lbl) => {
       const dEnt = BE(`${k}_door`), tEnt = na ? S(`${k}_tire`) : null, psi = num(tEnt?.state);
-      if (dEnt) { const o = dEnt.state === "on"; return `<div class="corner ${o ? "bad" : ""}"><b>${o ? "Open" : "Shut"}</b><span>${lbl}</span></div>`; }
+      if (dEnt) { const o = dEnt.state === "on"; return `<div class="corner ${o ? "bad" : ""}"><b>${o ? "Open" : na ? "Closed" : "Shut"}</b><span>${lbl}</span></div>`; }
       if (psi !== null) return `<div class="corner ${psi < 28 ? "bad" : ""}"><b>${Math.round(psi)} ${esc(tEnt.attributes?.unit_of_measurement || "psi")}</b><span>${lbl}</span></div>`;
       return `<div class="corner"><b>${na ? "–" : "Shut"}</b><span>${lbl}</span></div>`;
     };
@@ -221,7 +221,7 @@ class YarisCard extends HTMLElement {
         <span class="park ${driving ? "drive" : ""}" title="Open in Google Maps">${esc(where)}</span></div>
       <div class="hero">${pic ? `<img src="${esc(pic)}" alt="">` : `<ha-icon icon="mdi:car-hatchback"></ha-icon>`}</div>
       <div class="mid">
-        <div class="list">${st("doors", unlocked, ["locked", "unlocked"], "warn", hasLocks)}${st("boot", B("trunk") === "on", ["closed", "open"], "bad", hasTrunk)}${st("bonnet", B("hood") === "on", ["closed", "open"], "bad", hasHood)}
+        <div class="list">${st("doors", unlocked, ["locked", "unlocked"], "warn", hasLocks)}${st(na ? "trunk" : "boot", B("trunk") === "on", ["closed", "open"], "bad", hasTrunk)}${st(na ? "hood" : "bonnet", B("hood") === "on", ["closed", "open"], "bad", hasHood)}
           ${st("windows", winsOpen, ["closed", "open"], "bad", hasWins)}${st("warnings", warn, ["none", "on"], "bad", hasWarn)}</div>
         <div class="kv"><span>estimated range</span><b>${entDist(rangeEnt)} ${distanceUnit}</b><span>odometer</span><b>${entDist(odoEnt)} ${distanceUnit}</b></div>
         <div class="gauge">${gauge}</div>
