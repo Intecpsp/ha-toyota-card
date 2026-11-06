@@ -30,7 +30,7 @@ It lays itself out for phones, tablets and full-page panel views.
 - Home Assistant with one of these integrations from Marketplace (HACS before 2026.11):
   - **Europe / UK**: [pytoyoda/ha_toyota](https://github.com/pytoyoda/ha_toyota)
   - **North America**: [widewing/ha-toyota-na](https://github.com/widewing/ha-toyota-na)
-- A Toyota with connected services in the MyToyota / Toyota app. main
+- A Toyota with connected services in the MyToyota / Toyota app.
 
 ## Install
 
