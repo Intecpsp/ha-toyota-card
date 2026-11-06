@@ -27,19 +27,23 @@ It lays itself out for phones, tablets and full-page panel views.
 
 ## Requirements
 
-- Home Assistant with one of these HACS integrations:
+- Home Assistant with one of these integrations from Marketplace (HACS before 2026.11):
   - **Europe / UK**: [pytoyoda/ha_toyota](https://github.com/pytoyoda/ha_toyota)
   - **North America**: [widewing/ha-toyota-na](https://github.com/widewing/ha-toyota-na)
-- A Toyota with connected services in the MyToyota / Toyota app.
+- A Toyota with connected services in the MyToyota / Toyota app. main
 
 ## Install
 
-### HACS (recommended)
+### Marketplace (recommended)
 
-1. In HACS, search for **Toyota Card**.
-2. Open it, click **Download**, and reload your browser when asked.
+1. In **Settings → Marketplace**, search for **Toyota Card**.
+2. Open it, click **Install**, and reload your browser.
 
-If it doesn't show up, open the three-dot menu in HACS and choose **Custom repositories**. Paste this repository's URL (the address of this page), choose the type **Dashboard**, then search again.
+If it doesn't show up, click **Add from link**, paste this repository's URL (the address of this page) and choose the type **Dashboard** if asked. This asks you to connect GitHub.
+
+The first time you use Marketplace, tick **I understand the risks and agree** and click **Continue**.
+
+**On a version older than 2026.11?** Marketplace is still called HACS there. Use **Download** in place of Install and **⋮ → Custom repositories** in place of Add from link.
 
 ### Manual
 
